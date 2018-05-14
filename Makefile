@@ -19,10 +19,10 @@ git-init-and-push:
     git push origin master
 
 git-push:
-	@echo "Starting to push to $(SSH_REPOSITORY_PATH)\nwith commit m=$(commit_m)" \
+	@echo "Starting to push to $(SSH_REPOSITORY_PATH)\nwith commit m=$(commit_m)\n" \
 	cd $(PWD) &&\
 	git add . && git commit -m $(commit_m) &&\
-	git remote add origin $(SSH_REPOSITORY_PATH) &&\
 	git push origin master
+#	git remote add origin $(SSH_REPOSITORY_PATH) &&\
 
 #    git create -d "$(CONTIKI_PROJECT)" &&\
