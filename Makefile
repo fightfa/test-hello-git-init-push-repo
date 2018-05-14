@@ -18,6 +18,7 @@ git-init-and-push:
     git remote add origin $(SSH_REPOSITORY_PATH) &&\
     git push origin master
 
+.PHONY:git-push
 git-push:
 	@echo "Starting to push to $(SSH_REPOSITORY_PATH)\nwith commit m=$(commit_m)\n" \
 	cd $(PWD) &&\
