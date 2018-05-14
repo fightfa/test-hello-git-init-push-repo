@@ -14,8 +14,8 @@ endif
 first_commit_m:="first time to push."
 commit_m:="default push with nothing said"
 ifneq ($(m),)
-first_commit_m=$(m)
-commit_m=$(m)
+first_commit_m="$(m)"
+commit_m="$(m)"
 endif
 .PHONY: git-init-and-push
 git-init-and-push:
