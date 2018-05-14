@@ -1,16 +1,22 @@
 #@author:fightfa
 #本makefile提供git简便命令行，进行初始化仓库或提交仓库。更好的方案是在CLion IDE中使用git工具。
+
 ##使用方法示例：将本文件放于项目根目录下，在主要的Makfile中最后加入下面两行（去除#，修改值）：
 #SSH_REPOSITORY_PATH=git@github.com:fightfa/test-hello-git-init-push-repo.git
 #include Makefile.git-tools
-##根目录下shell中使用make git-init-and-push 初始化本地仓库及第一次提交到远程仓库
-##以后提交仓库直接make git-push 提交到远程仓库
-##两个命令都可加 m=commits的参数，如make git-push m=fix a bug
 
+##根目录下shell中使用 make git-init-and-push 初始化本地仓库及第一次提交到远程仓库
+##以后提交仓库直接make git-push 提交到远程仓库
+##两个命令都可加 m=commits的参数，如make git-push m="fix a bug"
+
+
+#e=`please first set var like follow：\n SSH_REPOSITORY_PATH git@github.com:fightfa/test-hello-git-init-push-repo.git`
 
 ifeq ($(SSH_REPOSITORY_PATH),)
-    ${error `please first set var like follow：\n SSH_REPOSITORY_PATH=git@github.com:fightfa/test-hello-git-init-push-repo.git`}
+    ${error please first}
 endif
+
+#TODO 加个询问用户输入yes/no啥的。
 first_commit_m:="first time to push."
 commit_m:="default push with nothing said"
 ifneq ($(m),)
@@ -19,7 +25,6 @@ commit_m="$(m)"
 endif
 .PHONY: git-init-and-push
 git-init-and-push:
-
 	@echo "Starting to init local git repo and then push to $(SSH_REPOSITORY_PATH)\n" \
 	cd $(PWD) &&\
 	git init &&\
