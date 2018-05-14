@@ -23,6 +23,8 @@ git-push:
 	cd $(PWD) &&\
 	git add . && git commit -m $(commit_m) &&\
 	git push origin master
+
+	
 #	git remote add origin $(SSH_REPOSITORY_PATH) &&\
 
 #    git create -d "$(CONTIKI_PROJECT)" &&\
