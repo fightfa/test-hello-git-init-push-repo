@@ -1,0 +1,8 @@
+#如果所依赖的contiki项目中代码未有改动，只修改到具体项目app的c文件，则不用每次编译前用make clean重删下面部分与contiki最相关的文件或目录。
+obj_*/
+contiki-*.a
+contiki-*.map
+symbols.c
+symbols.h
+*.o
+*.co
