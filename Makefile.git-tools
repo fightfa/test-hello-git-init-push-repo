@@ -10,10 +10,8 @@
 ##两个命令都可加 m=commits的参数，如make git-push m="fix a bug"
 
 
-#e=`please first set var like follow：\n SSH_REPOSITORY_PATH git@github.com:fightfa/test-hello-git-init-push-repo.git`
-
-ifeq ($(SSH_REPOSITORY_PATH),)
-    ${error please first}
+ifndef SSH_REPOSITORY_PATH
+  ${error please first set var like this\n SSH_REPOSITORY_PATH=git@github.com:fightfa/test-hello-git-init-push-repo.git}
 endif
 
 #TODO 加个询问用户输入yes/no啥的。
