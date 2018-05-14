@@ -1,7 +1,10 @@
 CONTIKI_PROJECT = test-hello-git-init-push-repo
+
 SSH_REPOSITORY_PATH=git@github.com:fightfa/test-hello-git-init-push-repo.git
 all:
 	@echo "nothing all here\n"
+
+#本makefile提供简便命令行进行初始化仓库或提交仓库。更好的方案是在CLion IDE中使用git工具。
 
 first_commit_m:="first time to push."
 commit_m:="default push"
@@ -25,3 +28,4 @@ git-push:
 	cd $(PWD) &&\
 	git add . && git commit -m $(commit_m) &&\
 	git push origin master
+#TODO bug-warn： 运行make git-push m=comment 后，最后一行报错（不影响提交）： make: *** No rule to make target 'no'。 停止。
